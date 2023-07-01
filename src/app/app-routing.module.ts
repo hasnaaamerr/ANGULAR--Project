@@ -6,7 +6,7 @@ import { ExamPageComponent } from './components/exam-page/exam-page.component';
 const routes: Routes = [
   // { path: '', component: HomeComponent }
   { path: '', component: HomeComponent },
-  { path: 'exam', component: ExamPageComponent }
+  { path: 'Exams', component: ExamPageComponent }
 
 ];
 
