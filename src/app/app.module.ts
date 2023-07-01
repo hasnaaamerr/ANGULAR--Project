@@ -9,6 +9,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ExamPageComponent } from './components/exam-page/exam-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavComponent,
     FooterComponent,
     ExamPageComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
