@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ApoutUsComponent } from './components/apout-us/apout-us.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     NotFoundComponent,
     ApoutUsComponent,
     SignUpComponent,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,

@@ -50,50 +50,10 @@
                                 </div>
                                 <div class="col-12 col-lg-7 px-3 py-5 px-sm-5 px-md-6">
                                     <div class="text-center text-md-center mb-4 mt-md-0">
-                                        <h1 class="mb-0 h3">Sign Up</h1>
+                                        <h1 class="mb-0 h3">Sign In</h1>
                                     </div>
 
                                     <form method="post" id="mainform" [formGroup]="signupForm">
-
-
-                                        <!-- Form -->
-                                        <div class="form-group mb-2">
-                                            <label for="exampleInputPasswordCard4">Name</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text" id="basic-addon5"><span
-                                                        class="fas fa-unlock-alt"></span></span>
-                                                <input formControlName="Name" type="text" placeholder="Name"
-                                                    class="form-control" id="exampleInputPasswordCard5" />
-                                            </div>
-                                        </div>
-                                        <ng-container *ngIf="GetName.touched" class="mb-4">
-                                            <div *ngIf="GetName.hasError('required')" id="emailHelp"
-                                                class="form-text text-danger">
-                                                Name Is Required
-                                            </div>
-                                            <div *ngIf="GetName.hasError('minlength')" id="bbHelp"
-                                                class="form-text text-danger">
-                                                Name Length must be >= 3
-                                            </div>
-                                        </ng-container>
-                                        <!-- End of Form -->
-                                        <!-- Form -->
-                                        <div class="form-group mb-2">
-                                            <label for="exampleInputPasswordCard4">Age</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text" id="basic-addon5"><span
-                                                        class="fas fa-unlock-alt"></span></span>
-                                                <input formControlName="Age" type="text" placeholder="Age"
-                                                    class="form-control" id="exampleInputPasswordCard5" />
-                                            </div>
-                                        </div>
-                                        <ng-container *ngIf="GetAge.touched" class="mb-4">
-                                            <div *ngIf="GetAge.hasError('required')" id="emailHelp"
-                                                class="form-text text-danger">
-                                                Age Is Required
-                                            </div>
-                                        </ng-container>
-                                        <!-- End of Form -->
                                         <!-- Form -->
                                         <div class="form-group mb-2">
                                             <label for="exampleInputPasswordCard4">Enter your Email</label>
@@ -130,36 +90,19 @@
                                             </div>
                                         </ng-container>
                                         <!-- End of Form -->
-                                        <!-- Form -->
-                                        <div class="form-group mb-2">
-                                            <label for="exampleInputPasswordCard4">Confirm Password</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text" id="basic-addon5"><span
-                                                        class="fas fa-unlock-alt"></span></span>
-                                                <input formControlName="ComfirmPassword" type="password"
-                                                    placeholder="Confirm Password" class="form-control"
-                                                    id="exampleInputPasswordCard5" />
-                                            </div>
-                                        </div>
-                                        <ng-container *ngIf="GetComfirmPassword.touched" class="mb-4">
-                                            <div *ngIf="GetComfirmPassword.hasError('required')" id="emailHelp"
-                                                class="form-text text-danger">
-                                                Comfirm Password Is Required
-                                            </div>
-                                        </ng-container>
-                                        <!-- End of Form -->
+
 
                                         <button type="submit" class="btn btn-block btn-primary">
-                                            Sign up
+                                            Sign In
                                         </button>
 
                                     </form>
                                     <div class="d-flex justify-content-center align-items-center mt-4">
                                         <span class="font-weight-normal">
-                                            Already have an account?
-                                            <a [routerLink]="'/SignIn'" [routerLinkActive]="'font-weight-bold'"
+                                            Create New Account?
+                                            <a [routerLink]="'/SignUp'" [routerLinkActive]="'font-weight-bold'"
                                                 [routerLinkActiveOptions]="{ exact: true }" class="font-weight-bold">
-                                                Sign In</a>
+                                                Sign Up</a>
                                         </span>
                                     </div>
                                 </div>
