@@ -11,6 +11,7 @@ import { ExamPageComponent } from './components/exam-page/exam-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ApoutUsComponent } from './components/apout-us/apout-us.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ApoutUsComponent } from './components/apout-us/apout-us.component';
     ExamPageComponent,
     NotFoundComponent,
     ApoutUsComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
