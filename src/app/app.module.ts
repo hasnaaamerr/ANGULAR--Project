@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ExamPageComponent } from './components/exam-page/exam-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ApoutUsComponent } from './components/apout-us/apout-us.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     FooterComponent,
     ExamPageComponent,
     NotFoundComponent,
+    ApoutUsComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,4 +31,4 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
