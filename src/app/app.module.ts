@@ -11,12 +11,12 @@ import { ExamPageComponent } from './components/exam-page/exam-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
-import { ApoutUsComponent } from './components/apout-us/apout-us.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 
 import { SingleExamComponent } from './components/single-exam/single-exam.component';
 import { ResultComponent } from './components/result/result.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 
 @NgModule({
@@ -27,11 +27,11 @@ import { ResultComponent } from './components/result/result.component';
     FooterComponent,
     ExamPageComponent,
     NotFoundComponent,
-    ApoutUsComponent,
     SignUpComponent,
     SignInComponent,
     SingleExamComponent,
-    ResultComponent
+    ResultComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

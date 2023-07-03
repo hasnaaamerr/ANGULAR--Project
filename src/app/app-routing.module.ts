@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ExamPageComponent } from './components/exam-page/exam-page.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { ApoutUsComponent } from './components/apout-us/apout-us.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SingleExamComponent } from './components/single-exam/single-exam.component';
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
 
   { path: 'Exams', component: ExamPageComponent },
-  { path: 'Apout', component: ApoutUsComponent },
+  { path: 'About', component: AboutUsComponent },
   { path: 'SignUp', component: SignUpComponent },
   { path: 'SignIn', component: SignInComponent },
   { path: 'exam/:id', component: SingleExamComponent },
