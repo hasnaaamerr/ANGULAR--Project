@@ -46,11 +46,17 @@
                     <li>
                         <a target="_blank" href="./index.html">Home</a>
                     </li>
-                    <li>
-                        <a target="_blank" href="./Exam.html">Take Exam</a>
+                    <li class="nav-item">
+                        <a [routerLink]="['/Exams']" [routerLinkActive]="'text-danger'"
+                            [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
+                            Take Exam
+                        </a>
                     </li>
-                    <li>
-                        <a target="_blank" href="./about.html">About Us</a>
+                    <li class="nav-item">
+                        <a [routerLink]="['/Apout']" [routerLinkActive]="'text-danger'"
+                            [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
+                            About Us
+                        </a>
                     </li>
                     <li>
                         <a target="_blank" href="./ContactUs.html">Contact Us</a>

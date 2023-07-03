@@ -3,13 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ExamPageComponent } from './components/exam-page/exam-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+
+import { ApoutUsComponent } from './components/apout-us/apout-us.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+
+import { SingleExamComponent } from './components/single-exam/single-exam.component';
+import { ResultComponent } from './components/result/result.component';
+
 
 @NgModule({
   declarations: [
@@ -19,14 +27,20 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     FooterComponent,
     ExamPageComponent,
     NotFoundComponent,
+    ApoutUsComponent,
+    SignUpComponent,
+    SignInComponent,
+    SingleExamComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
