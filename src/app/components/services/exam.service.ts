@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ExamService {
-  baseURL: string = 'http://localhost:3005/products';
+  baseURL: string = 'https://localhost:7275/api/Exam';
   constructor(private http: HttpClient) { }
   getAllProducts() {
     return this.http.get(this.baseURL);

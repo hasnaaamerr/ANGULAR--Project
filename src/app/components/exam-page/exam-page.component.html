@@ -1,18 +1,18 @@
 <div class="container w-75">
-  <div class="col-12" *ngFor="let exam of Exams">
+  <div class="col-12" *ngFor="let item of Exams">
     <div class="card m-3 border-primary">
       <div class="card-body">
-        <h5 class="card-title">Exam Title</h5>
-        <p class="card-text">Duration: {{ exam.duration }} minutes</p>
-        <p class="card-text">Date: {{ exam.date }}</p>
-        <a href="{{exam}}" class="btn btn-primary">Start Exam</a>
+        <h5 class="card-title">Exam Title: ({{ item.name }})</h5>
+        <p class="card-text">Number Of Questions: {{ item.questionCount }}</p>
+        <p class="card-text">Date: {{ item.createdAt }}</p>
+        <a href="{{item}}" class="btn btn-primary">Start Exam</a>
       </div>
     </div>
   </div>
 </div>
 
 
-
+<!-- 
 <div class="container w-75">
   <div class="col-12">
     <div class="card m-3 border-primary">
@@ -50,7 +50,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 <!-- <div class="container">
