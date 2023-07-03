@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/auth.service';
+import { Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-sign-in',
@@ -8,17 +11,44 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class SignInComponent {
 
-  signupForm = new FormGroup({
+  signInForm = new FormGroup({
     Email: new FormControl('', [Validators.required]),
     Password: new FormControl('', [Validators.required]),
 
   }
   )
   get GetEmail() {
-    return this.signupForm.controls['Email']
+    return this.signInForm.controls['Email']
   }
-  get GetPasswoed() {
-    return this.signupForm.controls['Password']
+  get GetPassword() {
+    return this.signInForm.controls['Password']
+  }
+
+
+  constructor(private _AuthService: AuthService, private _Router: Router) {}
+
+  errorMessage: string = '';
+  isLoading: boolean = false;
+
+  submitsignInForm(signInForm: FormGroup) {
+    console.log(signInForm.value);
+    this.isLoading = true;
+    this._AuthService.signIn(signInForm.value).subscribe({
+      next: (response) => {
+        this.isLoading = false;
+        if (response.message == 'success') {
+          //save token
+          localStorage.setItem('userToken', response.token);
+          localStorage.setItem('userRole', response.role);
+           //call and transform UserDecode
+           this._AuthService.saveUserData();
+          // navigate to login page
+          this._Router.navigate(['/home']);
+        } else {
+          this.errorMessage = response.description;
+        }
+      },
+    });
   }
 
 }
