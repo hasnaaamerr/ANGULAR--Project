@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/auth.service';
+import { AuthService } from 'src/app/components/services/auth.service';
 import { Router} from "@angular/router";
 
 
@@ -41,7 +41,7 @@ export class SignInComponent {
           localStorage.setItem('userToken', response.token);
           localStorage.setItem('userRole', response.role);
            //call and transform UserDecode
-           this._AuthService.saveUserData();
+          this._AuthService.saveUserData();
           // navigate to login page
           this._Router.navigate(['/home']);
         } else {

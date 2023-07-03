@@ -30,13 +30,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/Exams']" [routerLinkActive]="'text-danger'" [routerLinkActiveOptions]="{ exact: true }"
-              class="nav-link">
+            <a *ngIf="isLogin" [routerLink]="['/Exams']" [routerLinkActive]="'text-danger'"
+              [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
               Take Exam
             </a>
           </li>
           <li class="nav-item">
-            <a href="./ContactUs.html" class="nav-link"> Contact Us </a>
+            <a *ngIf="isLogin" href="./ContactUs.html" class="nav-link"> Contact Us </a>
           </li>
           <li class="nav-item">
             <a [routerLink]="['/About']" [routerLinkActive]="'text-danger'" [routerLinkActiveOptions]="{ exact: true }"
@@ -47,15 +47,15 @@
         </ul>
         <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
           <li class="nav-item">
-            <a [routerLink]="'/SignIn'" [routerLinkActive]="'text-danger'" [routerLinkActiveOptions]="{ exact: true }"
-              class="nav-link"> Sign In </a>
+            <a *ngIf="!isLogin" [routerLink]="'/SignIn'" [routerLinkActive]="'text-danger'"
+              [routerLinkActiveOptions]="{ exact: true }" class="nav-link"> Sign In </a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="'/SignUp'" [routerLinkActive]="'text-danger'" [routerLinkActiveOptions]="{ exact: true }"
-              class="nav-link"> Sign Up </a>
+            <a *ngIf="!isLogin" [routerLink]="'/SignUp'" [routerLinkActive]="'text-danger'"
+              [routerLinkActiveOptions]="{ exact: true }" class="nav-link"> Sign Up </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"> Log Out </a>
+            <a *ngIf="isLogin" (click)="LogOut()" class="nav-link"> Log Out </a>
           </li>
         </ul>
       </div>
