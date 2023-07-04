@@ -14,6 +14,7 @@ export class ExamService {
   getAllProducts() {
     return this.http.get(this.baseURL);
   }
+  // exam msh product :D
   getProductById(productId: any) {
     return this.http.get(`${this.baseURL}/${productId}`);
   }
@@ -21,7 +22,7 @@ export class ExamService {
   getExam(id: any):Observable<Exam> {
     return this.http.get<Exam>( `${this.baseURL}/${id}` );
   }
-  
+
   store(Answers:Answers){
     return this.http.post(this.baseURL,Answers);
   }

@@ -17,6 +17,8 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SingleExamComponent } from './components/single-exam/single-exam.component';
 import { ResultComponent } from './components/result/result.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     SignInComponent,
     SingleExamComponent,
     ResultComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ContactUsComponent
+
   ],
   imports: [
     BrowserModule,
