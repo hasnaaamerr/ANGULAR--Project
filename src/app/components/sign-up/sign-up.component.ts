@@ -19,7 +19,6 @@ export class SignUpComponent implements OnInit{
 
   signupForm:FormGroup = new FormGroup({
     Name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    Age: new FormControl('', [Validators.required]),
     Email: new FormControl('', [Validators.required,Validators.email]),
     Password: new FormControl('', [Validators.required]),
     ConfirmPassword: new FormControl('', Validators.required)
@@ -29,9 +28,6 @@ export class SignUpComponent implements OnInit{
 
   get GetName() {
     return this.signupForm.controls['Name']
-  }
-  get GetAge() {
-    return this.signupForm.controls['Age']
   }
   get GetEmail() {
     return this.signupForm.controls['Email']
@@ -67,7 +63,7 @@ export class SignUpComponent implements OnInit{
         this.isLoading = false;
         if (response.message == 'success') {
           // navigate to login page
-          this._Router.navigate(['/sign-in']);
+          this._Router.navigate(['/SignIn']);
         } else {
           this.errorMessage = response.description;
         }

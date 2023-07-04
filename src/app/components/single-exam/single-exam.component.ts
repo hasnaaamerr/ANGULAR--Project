@@ -4,6 +4,7 @@ import { ExamService } from './../services/exam.service';
 import { Component, OnInit } from '@angular/core';
 import { Exam } from '../services/Interfaces/exam';
 import Swal from 'sweetalert2'
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-single-exam',
@@ -23,12 +24,23 @@ export class SingleExamComponent implements OnInit {
   constructor(
     private examService: ExamService,
     private activatedRoute: ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private _AuthService:AuthService
   ) {
     this.examId = this.activatedRoute.snapshot.paramMap.get('id');
   }
   
   ngOnInit(): void {
+    this._AuthService.RequireLogin();
+     // check if student took this exam before
+     this.examService.CheckUserExam(this.examId).subscribe({
+      next: (response) => {
+        this.isAlreadyTaken = false;
+      },
+      error:(err:any) => {
+        this.isAlreadyTaken = true;
+      }
+    });
     this.examService.getExam(this.examId).subscribe({
       next: (exam: Exam) => {
         this.exam = exam;
@@ -38,27 +50,14 @@ export class SingleExamComponent implements OnInit {
       }
     });
 
-    // check if student took this exam before
-    this.examService.CheckUserExam(this.examId,6).subscribe({
-      next: (response) => {
-        this.isAlreadyTaken = true;
-      },
-      error:(err:any) => {
-        console.log(err);
-      }
-    });
+   
   }
 
   submit(){
     this.submitting = 'true';
     this.submitText = "Sending...";
-    const answers: Answers = {
-      examId: parseInt(this.examId),
-      selectedOptions: this.selectedOptions,
-      userId: 6
-    };
-    console.log(answers);
-    this.examService.store(answers).subscribe({
+   
+    this.examService.store(this.examId,this.selectedOptions).subscribe({
       next:(response) => {
         Swal.fire({
           title: 'Sent Successfully!',

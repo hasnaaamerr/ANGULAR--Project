@@ -2,6 +2,7 @@ import { ExamService } from './../services/exam.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import * as confetti from 'canvas-confetti';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-result',
@@ -18,21 +19,24 @@ export class ResultComponent implements OnInit {
     private elementRef: ElementRef,
     private ActivatedRoute:ActivatedRoute,
     private ExamSerivce:ExamService,
-    private router:Router
+    private router:Router,
+    private _AuthService:AuthService
   ) {
     this.examId = this.ActivatedRoute.snapshot.paramMap.get('id');
   }
 
   ngOnInit(): void {
     // get exam result
-    this.ExamSerivce.getResult(this.examId,6).subscribe({
+    this._AuthService.RequireLogin();
+    this.ExamSerivce.getResult(this.examId).subscribe({
       next:(response) =>{
         this.exam = response;
         console.log(response);
         this.viewSuccess();
       },
       error:(error:any) =>{
-        this.router.navigate(['/']);
+        console.log(error);
+        //this.router.navigate(['/']);
       }
     });
   }

@@ -57,6 +57,9 @@
           <li class="nav-item">
             <a *ngIf="isLogin" (click)="LogOut()" class="nav-link"> Log Out </a>
           </li>
+          <li class="bg-success text-white rounded p-2 pointer-events-none user-select-none" *ngIf="isLogin">
+						<span><b>Welcome {{ username }}</b></span>
+					</li>	
         </ul>
       </div>
     </div>

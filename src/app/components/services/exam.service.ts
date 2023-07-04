@@ -3,14 +3,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Exam } from './Interfaces/exam';
 import { Observable, map } from 'rxjs';
+import { AuthService } from './auth.service';
+import { CustomClaims } from './Interfaces/CustomClaims';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExamService {
+
+
   baseURL: string = 'https://localhost:7275/api/Exam';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _AuthService: AuthService ) { }
   getAllProducts() {
     return this.http.get(this.baseURL);
   }
@@ -23,22 +27,39 @@ export class ExamService {
     return this.http.get<Exam>( `${this.baseURL}/${id}` );
   }
 
-  store(Answers:Answers){
-    return this.http.post(this.baseURL,Answers);
+  store(examId: any,selectedOptions: number[]){
+    const userData = this._AuthService.userData.value;
+    const email = userData[CustomClaims.Email];
+    const answers: Answers = {
+      examId: parseInt(examId),
+      selectedOptions:selectedOptions,
+      email: email
+    };
+    return this.http.post(this.baseURL,answers);
   }
+  
+  getResult(examId: number) {
+    // Get user data from BehaviorSubject
+    const userData = this._AuthService.userData.value;
 
-  getResult(examId:number,userId:number){
+    const email = userData[CustomClaims.Email];
     const data = {
-      examId,
-      userId
+        examId,
+        email
     };
 
     return this.http.post(`${this.baseURL}/examResult`, data);
-  }
-  CheckUserExam(examId:number,userId:number){
+    
+}
+
+  CheckUserExam(examId:number){
+
+    const userData = this._AuthService.userData.value;
+
+    const email = userData[CustomClaims.Email];
     const data = {
-      examId,
-      userId
+        examId,
+        email
     };
 
     return this.http.post(`${this.baseURL}/CheckUserExam`, data);

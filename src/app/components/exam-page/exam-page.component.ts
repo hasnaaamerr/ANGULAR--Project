@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExamService } from '../services/exam.service';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-exam-page',
@@ -8,8 +10,10 @@ import { ExamService } from '../services/exam.service';
 })
 export class ExamPageComponent implements OnInit {
   Exams: any;
-  constructor(private ExamService: ExamService) {}
+
+  constructor(private ExamService: ExamService,private _AuthService:AuthService) {}
   ngOnInit(): void {
+    this._AuthService.RequireLogin();
     this.ExamService.getAllProducts().subscribe({
       next: (response) => {
         this.Exams = response;

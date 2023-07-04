@@ -11,21 +11,20 @@ import { AuthService } from '../services/auth.service';
 export class NavComponent implements OnInit {
 
 isLogin:boolean =false;
-
+username!:string;
 
 constructor(private _AuthService:AuthService) {}
 
   ngOnInit(): void {
-    this._AuthService.userData.subscribe({
-      next:()=>{
-        if (this._AuthService.userData.getValue() != null) {
-          this.isLogin=true
-        }
-        else{
-          this.isLogin=false
-        }
+    this._AuthService.userData.subscribe((userData:any) => {
+      if (userData) {
+        this.username = userData.name;
+        this.isLogin = true;
+      }else{
+        this.isLogin =false;
       }
-    })
+     
+    });
 
   }
 

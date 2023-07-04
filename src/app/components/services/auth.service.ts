@@ -9,20 +9,33 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
+  baseURL: string = 'https://localhost:7275/api/Authorization/';
   constructor(private _HttpClient:HttpClient,private _Router:Router) {
     if (localStorage.getItem('userToken') != null){
       this.saveUserData();
     }
   }
-  userData:any=new BehaviorSubject(null);
 
+  userData:any=new BehaviorSubject(null);
 
   saveUserData(){
     //token local && decode
-    let encodedToken = JSON.stringify( localStorage.getItem('userToken'));
+    let encodedToken = JSON.stringify( localStorage.getItem('userToken') );
     let decodedToken:object = jwtDecode(encodedToken);
     this.userData.next(decodedToken);
+    console.log(this.userData);
     // localStorage.setItem("user",JSON.stringify(this.userData));
+  }
+
+  RequireLogin(){
+    this.userData.subscribe({
+      next:()=>{
+        if (this.userData.getValue() == null) {
+          this._Router.navigate(['/notfound']);
+        }
+        
+      }
+    })
   }
 
 //log out function called in navbar.ts file
@@ -31,17 +44,17 @@ export class AuthService {
     sessionStorage.clear();
     this.userData.next(null);
     // window.location.reload() ;
-    this._Router.navigate(['/home'])
+    this._Router.navigate(['/']);
   }
 
 //sign up function
   signUp(userData : object):Observable<any> {
-    return this._HttpClient.post('http:api link',userData)
+    return this._HttpClient.post(`${this.baseURL}register`,userData)
   }
 
 // sign in function
   signIn(userData : object):Observable<any> {
-    return this._HttpClient.post('https://localhost:7275/api/Authorization/login',userData)
+    return this._HttpClient.post(`${this.baseURL}login`,userData)
   }
 
 }
