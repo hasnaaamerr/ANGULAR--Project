@@ -145,7 +145,7 @@
 
                     <button type="submit" value="Register" class="btn btn-block btn-warning text-white my-4">
                       <span *ngIf="!isLoading">Sign Up </span>
-                      <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+                      <i *ngIf="isLoading" class="fas fa-spinner fa-spin"><fa-icon [icon]="faSpinner"></fa-icon></i>
                     </button>
 
                   </form>

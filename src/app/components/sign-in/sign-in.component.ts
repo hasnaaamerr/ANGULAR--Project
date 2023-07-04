@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/components/services/auth.service';
 import { Router} from "@angular/router";
+import {faSpinner}from "@fortawesome/free-solid-svg-icons"
+import { icon } from '@fortawesome/fontawesome-svg-core';
 
 
 @Component({
@@ -15,6 +17,7 @@ export class SignInComponent {
     Email: new FormControl('', [Validators.required]),
     Password: new FormControl('', [Validators.required]),
 
+
   }
   )
   get GetEmail() {
@@ -23,7 +26,7 @@ export class SignInComponent {
   get GetPassword() {
     return this.signInForm.controls['Password']
   }
-
+  faSpinner= faSpinner;
 
   constructor(private _AuthService: AuthService, private _Router: Router) {}
 

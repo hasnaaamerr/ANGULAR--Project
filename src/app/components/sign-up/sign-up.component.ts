@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/components/services/auth.service';
 import { Router} from "@angular/router";
+import {faSpinner}from "@fortawesome/free-solid-svg-icons"
+import { icon } from '@fortawesome/fontawesome-svg-core';
+
+
 
 @Component({
   selector: 'app-sign-up',
@@ -21,6 +25,7 @@ export class SignUpComponent implements OnInit{
     ConfirmPassword: new FormControl('', Validators.required)
   }
   )
+  faSpinner= faSpinner;
 
   get GetName() {
     return this.signupForm.controls['Name']
