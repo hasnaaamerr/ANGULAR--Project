@@ -18,6 +18,7 @@ import { SingleExamComponent } from './components/single-exam/single-exam.compon
 import { ResultComponent } from './components/result/result.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -43,6 +44,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
