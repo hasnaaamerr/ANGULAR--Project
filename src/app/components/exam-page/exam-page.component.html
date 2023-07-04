@@ -5,7 +5,7 @@
         <h5 class="card-title">Exam Title: ({{ item.name }})</h5>
         <p class="card-text">Number Of Questions: {{ item.questionCount }}</p>
         <p class="card-text">Date: {{ item.createdAt }}</p>
-        <a href="{{item}}" class="btn btn-primary">Start Exam</a>
+        <a [routerLink]="'/exam/'+ item.id" class="btn btn-primary">Start Exam</a>
       </div>
     </div>
   </div>
