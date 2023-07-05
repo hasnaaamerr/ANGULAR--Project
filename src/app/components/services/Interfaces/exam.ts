@@ -36,3 +36,24 @@ export interface ExamOption {
 export interface ExamRef {
   $ref: string;
 }
+
+
+export interface ExamModel {
+  id: number;
+  name: string;
+  questionCount: number;
+  examQuestions: ExamQuestionModel[];
+}
+
+export interface ExamQuestionModel {
+  id: number;
+  title: string;
+  options: ExamOptionModel[];
+}
+
+export interface ExamOptionModel {
+  id: number;
+  title: string;
+  isRight: boolean;
+  examQuestionId: number;
+}

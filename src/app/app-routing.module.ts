@@ -11,6 +11,7 @@ import { ResultComponent } from './components/result/result.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AdminExamsComponent } from './components/admin-exams/admin-exams.component';
 import { CreateExamComponent } from './components/create-exam/create-exam.component';
+import { EditExamComponent } from './components/edit-exam/edit-exam.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'ContactUs', component: ContactUsComponent },
   { path: 'admin/exam', component: AdminExamsComponent },
   { path: 'admin/exam/create', component: CreateExamComponent },
+  { path: 'admin/exam/:id/edit', component: EditExamComponent },
   { path: 'exam/:id', component: SingleExamComponent },
   { path: 'exam/result/:id', component: ResultComponent },
   { path: '**', component: NotFoundComponent } // 404 not found with any wrong url

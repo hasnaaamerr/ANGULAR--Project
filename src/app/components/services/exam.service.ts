@@ -66,7 +66,11 @@ export class ExamService {
   }
 
   storeExam(exam:any){
-    return this.http.post(`${this.baseURL}/store`, exam);
+    return this.http.post(`${this.baseURL}/storeExam`, exam);
+  }
+  
+  updateExam(exam:any){
+    return this.http.post(`${this.baseURL}/updateExam`, exam);
   }
 
 }

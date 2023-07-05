@@ -7,7 +7,7 @@
     <p class="lead">Answer the following questions:</p>
     <hr />
 
-    <div class="question-container">
+<div class="question-container">
   <div class="question" *ngFor="let question of exam?.ExamQuestions?.$values; let i = index;">
     <p class="fw-bold">({{ i + 1 }}): {{ question?.Title }}</p>
     <div class="form-group" *ngFor="let option of question?.Options?.$values; let j = index;">
