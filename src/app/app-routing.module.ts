@@ -9,6 +9,8 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SingleExamComponent } from './components/single-exam/single-exam.component';
 import { ResultComponent } from './components/result/result.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { AdminExamsComponent } from './components/admin-exams/admin-exams.component';
+import { CreateExamComponent } from './components/create-exam/create-exam.component';
 
 
 const routes: Routes = [
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'SignUp', component: SignUpComponent },
   { path: 'SignIn', component: SignInComponent },
   { path: 'ContactUs', component: ContactUsComponent },
+  { path: 'admin/exam', component: AdminExamsComponent },
+  { path: 'admin/exam/create', component: CreateExamComponent },
   { path: 'exam/:id', component: SingleExamComponent },
   { path: 'exam/result/:id', component: ResultComponent },
   { path: '**', component: NotFoundComponent } // 404 not found with any wrong url

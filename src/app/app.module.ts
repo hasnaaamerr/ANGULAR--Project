@@ -19,6 +19,8 @@ import { ResultComponent } from './components/result/result.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AdminExamsComponent } from './components/admin-exams/admin-exams.component';
+import { CreateExamComponent } from './components/create-exam/create-exam.component';
 
 
 
@@ -35,7 +37,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SingleExamComponent,
     ResultComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    AdminExamsComponent,
+    CreateExamComponent
 
   ],
   imports: [
