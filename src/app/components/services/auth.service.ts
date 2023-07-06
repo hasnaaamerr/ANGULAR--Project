@@ -30,17 +30,13 @@ export class AuthService {
 
   RequireLogin(role:string){
 
-    this.userData.subscribe({
-      next:()=>{
-        if (this.userData.getValue() != null) {
-          if(this.userData.role != role){
-            this._Router.navigate(['/notfound']);
-          }
-        }
-        else{
+    this.userData.subscribe((userToken:any) => {
+      if(userToken){
+        if(userToken.roleName != role){
           this._Router.navigate(['/notfound']);
         }
-
+      }else{
+        this._Router.navigate(['/notfound']);
       }
     })
   }

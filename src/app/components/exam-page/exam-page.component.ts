@@ -13,7 +13,7 @@ export class ExamPageComponent implements OnInit {
 
   constructor(private ExamService: ExamService,private _AuthService:AuthService) {}
   ngOnInit(): void {
-    this._AuthService.RequireLogin();
+    this._AuthService.RequireLogin("student");
     this.ExamService.getAllProducts().subscribe({
       next: (response) => {
         this.Exams = response;
