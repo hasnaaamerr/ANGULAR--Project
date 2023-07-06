@@ -50,7 +50,7 @@ import { EditExamComponent } from './components/edit-exam/edit-exam.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    FontAwesomeModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

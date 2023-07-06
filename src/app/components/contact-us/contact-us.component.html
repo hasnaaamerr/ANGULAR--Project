@@ -57,10 +57,10 @@
                   </ng-container>
                 </div>
                 <!-- End of Form -->
-                <button type="submit" id="frmbtn" class="btn btn-block btn-primary">
-                  Send
+                <button class="btn btn-block btn-primary" type="submit" [disabled]="isSending" [ngClass]="{'btn-primary': !isSending, 'btn-secondary': isSending}">
+                  <span *ngIf="isSending" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  <span *ngIf="!isSending">Send</span>
                 </button>
-
 
               </form>
             </div>
