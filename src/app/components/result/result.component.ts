@@ -27,7 +27,7 @@ export class ResultComponent implements OnInit {
 
   ngOnInit(): void {
     // get exam result
-    this._AuthService.RequireLogin();
+    this._AuthService.RequireLogin("student");
     this.ExamSerivce.getResult(this.examId).subscribe({
       next:(response) =>{
         this.exam = response;

@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Exam, ExamModel, ExamOption, ExamOptionModel, ExamQuestion, ExamQuestionModel } from '../services/Interfaces/exam';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2'
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-edit-exam',
@@ -23,11 +24,12 @@ export class EditExamComponent implements OnInit {
     examQuestions: []
   };
 
-  constructor(private ExamService:ExamService, private router:Router, private activatedRoute:ActivatedRoute){
+  constructor(private ExamService:ExamService, private router:Router, private activatedRoute:ActivatedRoute, private _AuthService:AuthService){
     this.examId = this.activatedRoute.snapshot.paramMap.get('id');
   }
   ngOnInit(): void {
     // get exam data
+    this._AuthService.RequireLogin('admin');
     this.ExamService.getExam(this.examId).subscribe({
       next: (exam: Exam) => {
         this.exam = exam;

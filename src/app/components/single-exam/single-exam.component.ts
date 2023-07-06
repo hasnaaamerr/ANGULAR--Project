@@ -31,7 +31,7 @@ export class SingleExamComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this._AuthService.RequireLogin();
+    this._AuthService.RequireLogin("student");
      // check if student took this exam before
      this.examService.CheckUserExam(this.examId).subscribe({
       next: (response) => {

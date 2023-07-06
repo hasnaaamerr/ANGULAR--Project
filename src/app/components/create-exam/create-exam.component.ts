@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExamService } from '../services/exam.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-create-exam',
@@ -14,9 +15,10 @@ export class CreateExamComponent implements OnInit {
   questionCount = Array.from({ length: 1 }, (_, i) => i + 1);
   submitText:string = "Submit";
   
-  constructor(private fb: FormBuilder, private examService: ExamService,private router:Router) { }
+  constructor(private fb: FormBuilder, private examService: ExamService,private router:Router, private _AuthService:AuthService) { }
 
   ngOnInit() {
+    this._AuthService.RequireLogin('admin');
     this.questionsForm = this.fb.group({
       examName: ['', Validators.required],
       Titles1: ['', Validators.required],

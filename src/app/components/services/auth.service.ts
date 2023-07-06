@@ -27,10 +27,16 @@ export class AuthService {
     // localStorage.setItem("user",JSON.stringify(this.userData));
   }
 
-  RequireLogin(){
+  RequireLogin(role:string){
+    
     this.userData.subscribe({
       next:()=>{
-        if (this.userData.getValue() == null) {
+        if (this.userData.getValue() != null) {
+          if(this.userData.role != role){
+            this._Router.navigate(['/notfound']);
+          }
+        }
+        else{
           this._Router.navigate(['/notfound']);
         }
         
