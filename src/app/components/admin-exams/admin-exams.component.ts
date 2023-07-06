@@ -13,7 +13,7 @@ export class AdminExamsComponent implements OnInit {
   constructor(private ExamService: ExamService, private _AuthService: AuthService) { }
 
   ngOnInit(): void {
-    this._AuthService.RequireLogin();
+    //this._AuthService.RequireLogin();
     this.ExamService.getAllProducts().subscribe({
       next: (response) => {
         this.Exams = response;
@@ -30,6 +30,9 @@ export class AdminExamsComponent implements OnInit {
         next: () => {
           console.log("Exam is removed")
           this.Exams = this.Exams.filter((e: any) => e.id !== examId);
+        },
+        error:(err:any) => {
+          console.log(err);
         }
       })
     }

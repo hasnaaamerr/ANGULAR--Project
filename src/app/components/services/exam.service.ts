@@ -75,8 +75,8 @@ export class ExamService {
 
 
 
-  deleteExam(examtId: any) {
-    return this.http.delete(`${this.baseURL}/${examtId}`);
+  deleteExam(examId: number) {
+    return this.http.delete(`${this.baseURL}/DeleteExam/${examId}`);
   }
 
 }
