@@ -14,7 +14,7 @@ export class ExamService {
 
 
   baseURL: string = 'https://localhost:7275/api/Exam';
-  constructor(private http: HttpClient, private _AuthService: AuthService ) { }
+  constructor(private http: HttpClient, private _AuthService: AuthService) { }
   getAllProducts() {
     return this.http.get(this.baseURL);
   }
@@ -23,54 +23,60 @@ export class ExamService {
     return this.http.get(`${this.baseURL}/${productId}`);
   }
 
-  getExam(id: any):Observable<Exam> {
-    return this.http.get<Exam>( `${this.baseURL}/${id}` );
+  getExam(id: any): Observable<Exam> {
+    return this.http.get<Exam>(`${this.baseURL}/${id}`);
   }
 
-  store(examId: any,selectedOptions: number[]){
+  store(examId: any, selectedOptions: number[]) {
     const userData = this._AuthService.userData.value;
     const email = userData[CustomClaims.Email];
     const answers: Answers = {
       examId: parseInt(examId),
-      selectedOptions:selectedOptions,
+      selectedOptions: selectedOptions,
       email: email
     };
-    return this.http.post(this.baseURL,answers);
+    return this.http.post(this.baseURL, answers);
   }
-  
+
   getResult(examId: number) {
     // Get user data from BehaviorSubject
     const userData = this._AuthService.userData.value;
 
     const email = userData[CustomClaims.Email];
     const data = {
-        examId,
-        email
+      examId,
+      email
     };
 
     return this.http.post(`${this.baseURL}/examResult`, data);
-    
-}
 
-  CheckUserExam(examId:number){
+  }
+
+  CheckUserExam(examId: number) {
 
     const userData = this._AuthService.userData.value;
 
     const email = userData[CustomClaims.Email];
     const data = {
-        examId,
-        email
+      examId,
+      email
     };
 
     return this.http.post(`${this.baseURL}/CheckUserExam`, data);
   }
 
-  storeExam(exam:any){
+  storeExam(exam: any) {
     return this.http.post(`${this.baseURL}/storeExam`, exam);
   }
-  
-  updateExam(exam:any){
+
+  updateExam(exam: any) {
     return this.http.post(`${this.baseURL}/updateExam`, exam);
+  }
+
+
+
+  deleteExam(examtId: any) {
+    return this.http.delete(`${this.baseURL}/${examtId}`);
   }
 
 }
