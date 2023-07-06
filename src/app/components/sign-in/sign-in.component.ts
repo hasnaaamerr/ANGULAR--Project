@@ -30,7 +30,8 @@ export class SignInComponent {
 
   constructor(private _AuthService: AuthService, private _Router: Router) {}
 
-  errorMessage: string = '';
+  errorMessage: boolean = false;
+
   isLoading: boolean = false;
 
   submitsignInForm(signInForm: FormGroup) {
@@ -41,8 +42,10 @@ export class SignInComponent {
         //console.log(response);
         this.isLoading = false;
         if (response.message == 'success') {
+          this.errorMessage = false;
           //save token
           localStorage.setItem('userToken', response.token);
+          localStorage.setItem('userRole', response.role); // NEW edit for admin role gets it from the db
            //call and transform UserDecode
           this._AuthService.saveUserData();
           // navigate to login page
@@ -53,6 +56,8 @@ export class SignInComponent {
         }
       },
       error:(err:any) => {
+        this.isLoading = false;
+        this.errorMessage = true;
         console.log(err);
       }
     });

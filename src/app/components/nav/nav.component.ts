@@ -12,6 +12,7 @@ export class NavComponent implements OnInit {
 
 isLogin:boolean =false;
 username!:string;
+Role:boolean=false;
 
 constructor(private _AuthService:AuthService) {}
 
@@ -19,11 +20,12 @@ constructor(private _AuthService:AuthService) {}
     this._AuthService.userData.subscribe((userData:any) => {
       if (userData) {
         this.username = userData.name;
+        this.Role= userData.role="admin"?true:false
         this.isLogin = true;
       }else{
         this.isLogin =false;
       }
-     
+
     });
 
   }

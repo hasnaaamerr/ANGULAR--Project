@@ -27,8 +27,9 @@ export class AuthService {
     // localStorage.setItem("user",JSON.stringify(this.userData));
   }
 
+
   RequireLogin(role:string){
-    
+
     this.userData.subscribe({
       next:()=>{
         if (this.userData.getValue() != null) {
@@ -39,7 +40,7 @@ export class AuthService {
         else{
           this._Router.navigate(['/notfound']);
         }
-        
+
       }
     })
   }
